@@ -1,0 +1,15 @@
+<html>
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="Content-Type" content="text/html"></meta>
+<title>TeCaSa - Delete category</title>
+</head>
+<body>
+<h3>Delete category:</h3><br/>
+<form th:action="@{/deleteCat/{id}(id=${category.id})}" th:object="${category}" method="post">
+	Are you sure you want to delete the category <span th:text="${category.name}">Name</span><br/>
+ 
+       <input type="submit" value="Delete">   
+           <a href="/">Return to home</a>
+</form>
+</html>

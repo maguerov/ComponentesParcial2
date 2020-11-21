@@ -18,6 +18,11 @@ public class CategoryServiceImpl implements CategoryService {
     public void save(Category category) {
      repo.save(category);
     }
+    
+    @Override
+    public void delete(Category category) {
+     repo.delete(category);
+    }
 
     @Override
     public Optional<Category> get(Long id) {

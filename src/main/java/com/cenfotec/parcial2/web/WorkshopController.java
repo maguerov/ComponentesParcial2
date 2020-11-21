@@ -88,6 +88,12 @@ public class WorkshopController {
 		return "listarNombre";
 	}
 	
+	@RequestMapping("/listarAutor")
+	public String listarAutor(Model model,@RequestParam String author) {
+		model.addAttribute("workshopAutor",workshopService.findAuthor(author));
+		return "listarAutor";
+	}
+	
 	@RequestMapping("/listarCat")
 	public String listarCat(Model model,@RequestParam String category) {
 		model.addAttribute("workshopCat",workshopService.findCat(category));
@@ -112,9 +118,25 @@ public class WorkshopController {
     }
 
     @RequestMapping(value = "/editCat/{id}", method = RequestMethod.POST)
-    public String saveEdition(Category antology, Model model, @PathVariable long id) {
-        categoryService.save(antology);
+    public String saveEdition(Category cat, Model model, @PathVariable long id) {
+        categoryService.save(cat);
         return "index";
+    }
+    
+    @RequestMapping(value = "/deleteCat/{id}", method = RequestMethod.POST)
+    public String deleteEdition(Category cat, Model model, @PathVariable long id) {
+        categoryService.delete(cat);
+        return "index";
+    }
+    
+    @RequestMapping("/deleteCat/{id}")
+    public String findCatToDelete(Model model, @PathVariable long id) {
+        Optional<Category> possibleData = categoryService.get(id);
+        if (possibleData.isPresent()) {
+            model.addAttribute("category", possibleData.get());
+            return "deleteCat";
+        }
+        return "notfound";
     }
 	
 	@RequestMapping("/edit/{id}")
@@ -133,6 +155,7 @@ public class WorkshopController {
 		workshopService.save(workshop);
 		return "index";
 	}
+
 
 	@RequestMapping(value="/detalle/{id}")
 	public String saveEdition(Model model, @PathVariable long id) {

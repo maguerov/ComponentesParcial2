@@ -25,5 +25,20 @@
     <br/>
          <input type="submit" th:href="@{/listarCat/{category}(category=${workshop.category})}" value="Search">
 </form>
+<h4>By author:</h4>
+<form action="#" th:action="@{/listarAutor}" th:object="${workshop}" method="get" id="form1">
+
+           <label for="author">Author</label>
+ <select type="text" th:field="*{author}" id="author">
+    <option value="Rick">Rick</option>
+    <option value="Morty">Morty</option>
+    <option value="Summer">Summer</option>
+    <option value="Beth">Beth</option>
+    </select>
+     <br/>
+    <br/>
+    <br/>
+         <input type="submit" th:href="@{/listarAutor/{author}(author=${workshop.author})}" value="Search">
+</form>
 </body>
 </html>

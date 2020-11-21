@@ -9,4 +9,5 @@ import com.cenfotec.parcial2.domain.Workshop;
 public interface WorkshopRepository extends JpaRepository<Workshop, Long>{
 	public List<Workshop> findByNameContaining(String word);
 	public List<Workshop> findByCategoryContaining(String word);
+	public List<Workshop> findByAuthorContaining(String word);
 }

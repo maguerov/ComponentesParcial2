@@ -15,7 +15,7 @@
 
                 <span>Name: </span><span th:text="${entry.name}">Name</span><br/>
                 <a th:href="@{/editCat/{id}(id=${entry.id})}">Edit</a><br/>
-
+                <a th:href="@{/deleteCat/{id}(id=${entry.id})}">Delete</a><br/>
             </li>
         </div>
 

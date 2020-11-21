@@ -12,4 +12,6 @@ public interface WorkshopService {
 	public List<Workshop> getAll();
 	public List<Workshop> find(String name);
 	public List<Workshop> findCat(String name);
+
+	public List<Workshop> findAuthor(String name);
 }
