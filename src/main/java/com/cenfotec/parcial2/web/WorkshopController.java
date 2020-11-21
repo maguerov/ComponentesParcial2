@@ -52,7 +52,7 @@ public class WorkshopController {
 	@RequestMapping(value = "/insertar",  method = RequestMethod.POST)
 	public String insertarAction(Workshop workshop, BindingResult result, Model model) {
 		workshopService.save(workshop);
-		return "index";
+		return "insertConfirmation";
 	}
 	
 
@@ -65,7 +65,7 @@ public class WorkshopController {
     @RequestMapping(value = "/insertarCategory", method = RequestMethod.POST)
     public String insertarCategoria(Category category, BindingResult result, Model model) {
         categoryService.save(category);
-        return "index";
+        return "insertCatConfirmation";
     }
 	
 	@RequestMapping("/listar")
@@ -126,7 +126,7 @@ public class WorkshopController {
     @RequestMapping(value = "/deleteCat/{id}", method = RequestMethod.POST)
     public String deleteEdition(Category cat, Model model, @PathVariable long id) {
         categoryService.delete(cat);
-        return "index";
+        return "deleteCatConfirmation";
     }
     
     @RequestMapping("/deleteCat/{id}")
