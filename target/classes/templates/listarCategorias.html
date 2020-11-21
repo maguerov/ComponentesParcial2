@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>TeCaSa - List categories</title>
+</head>
+<body>
+<h3>List of Categories</h3>
+<div>
+
+    <ul>
+        <div th:each="entry : ${categorias}">
+            <li>
+
+                <span>Name: </span><span th:text="${entry.name}">Name</span><br/>
+                <a th:href="@{/editCat/{id}(id=${entry.id})}">Edit</a><br/>
+
+            </li>
+        </div>
+
+    </ul>
+</div>
+</body>
+</html>

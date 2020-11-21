@@ -1,0 +1,29 @@
+<html>
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="Content-Type" content="text/html"></meta>
+<title>TeCaSa - Workshop details</title>
+</head>
+<body>
+<h3>Details:</h3>
+	Name:<span th:text="${workshopData.name}">Name</span><br/>
+	Author:<span th:text="${workshopData.author}">Author</span><br/>
+Keywords:<span th:text="${workshopData.keywords}">Keywords</span><br/>
+				Category:<span th:text="${workshopData.category}">Category</span><br/>
+    Activities:
+    <div th:each="entry : ${workshopData.activities}">
+    	<ul>
+    		<li>Name: <span th:text="${entry.name}">Name</span><br>
+    			Description: <span th:text="${entry.description}">Description</span><br>
+    				Text to display: <span th:text="${entry.text}">Text</span><br/>
+    						Time:<span th:text="${entry.time}">Time</span></li>
+    	</ul>
+    </div>
+    <a th:href="@{/agregarActividad/{id}(id=${workshopData.id})}">Add activity</a><br>
+    <a
+					th:href="@{/word/{id}(id=${workshopData.id})}">Print in a word
+						document</a><br />
+    <a href="/">Return to home</a>
+</body>
+</html>
+

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="Content-Type" content="text/html"></meta>
+<title>TeCaSa - Search</title>
+</head>
+<body>
+<h3>Search:</h3>
+<h4>By name:</h4>
+<form action="#" th:action="@{/listarNombre}" th:object="${workshop}" method="get" id="form1">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name">
+    <br/>
+         <input type="submit" th:href="@{/listarNombre/{name}(name=${workshop.name})}" value="Search">
+</form>
+<h4>By category:</h4>
+<form action="#" th:action="@{/listarCat}" th:object="${workshop}" method="get" id="form1">
+
+        <label for="category">Category</label>
+        <select name="category" id="category" th:field="*{category}" >
+            <option th:each="entry : ${categories}" th:value="${entry.name}" th:text="${entry.name}"></option>
+        </select>
+    <br/>
+    <br/>
+         <input type="submit" th:href="@{/listarCat/{category}(category=${workshop.category})}" value="Search">
+</form>
+</body>
+</html>

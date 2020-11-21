@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="Content-Type" content="text/html"></meta>
+<title>TeCaSa - List All</title>
+</head>
+<body>
+	<h3>List of Workshops</h3>
+	<div>
+		<ul>
+			<div th:each="entry : ${workshops}">
+				<li><span>Name: </span><span th:text="${entry.name}">Name</span><br />
+					<span>Author: </span><span th:text="${entry.author}">Author</span><br />
+					<span>Category: </span><span th:text="${entry.category}">Category</span><br />
+					<a th:href="@{/edit/{id}(id=${entry.id})}">Edit</a><br /> 
+					<a th:href="@{/detalle/{id}(id=${entry.id})}">Details</a><br /> </li>
+			</div>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>TeCaSa - Edit workshop</title>
+</head>
+<body>
+Editando: #<span th:text="${category.id}">Id</span>
+<form action="#" th:action="@{/editCat/{id}(id=${category.id})}" th:object="${category}" method="post">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name">
+    <input type="submit" value="Save Category">
+</form>
+
+</body>
+</html>

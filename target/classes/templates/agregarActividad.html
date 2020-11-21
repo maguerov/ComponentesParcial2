@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="Content-Type" content="text/html"></meta>
+<title>TeCaSa - Add activities</title>
+</head>
+<body>
+<h3>Add activity for workshop #: <span th:text="${workshop.name}">Name</span></h3>
+<form action="#" th:action="@{/agregarActividad/{id}(id=${workshop.id})}" th:object="${activity}" method="post">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name"><br>
+     <label for="description">Description</label>
+    <input type="text" th:field="*{description}" id="description"><br>
+     <label for="text">Text to display</label>
+    <input type="text" th:field="*{text}" id="text"><br>
+     <label for="number">Time</label>
+    <input type="number" th:field="*{time}" id="number"><br>
+     <input type="submit" value="Add Activity">   
+</form>
+
+</body>
+</html>
